@@ -17,10 +17,10 @@ jobs:
         run: pip install pytest
       - name: Run test calculate_expression
         run: |
-          pytest test_calculate_expression.py
+          pytest test/test_calculate_expression.py
       - name: Run test get_pong
         run: |
-          pytest test_get_pong.py
+          pytest test/test_get_pong.py
       - name: Run test get_random
         run: |
-          pytest test_get_random.py
+          pytest test/test_get_random.py
