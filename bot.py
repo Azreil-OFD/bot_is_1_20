@@ -1,7 +1,7 @@
 import random
 from aiogram.filters import Command
 from aiogram import Bot, Dispatcher, types
-from .services import get_random, get_pong
+from services import get_random, get_pong, calculate_expression
 import asyncio
 # Токен вашего бота
 TOKEN = '6851010287:AAGvSeH7KGz_kMrX7nXPgF6byg14wcUA7cw'
@@ -27,6 +27,10 @@ async def roll_dice(message: types.Message):
 async def ping(message: types.Message):
     await message.reply(f"{get_pong()}")
 
+# Команда /ping - выдает "pong"
+@dp.message(Command("math"))
+async def math(message: types.Message):
+    await message.reply(f"{calculate_expression(message.text.replace("/math" , ""))}")
 
 async def main() -> None:
     await dp.start_polling(bot)
