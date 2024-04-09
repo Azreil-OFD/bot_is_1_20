@@ -1,4 +1,4 @@
-from ..services import calculate_expression
+from services import calculate_expression
 
 # Тест для функции calculate_expression
 def test_calculate_expression():
