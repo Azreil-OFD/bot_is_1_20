@@ -1,0 +1,19 @@
+name: Run Tests
+
+on: [push, pull_request]
+
+jobs:
+  test_calculate_expression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install pytest
+      - name: Run test calculate_expression
+        run: |
+          pytest -k 'test_calculate_expression'

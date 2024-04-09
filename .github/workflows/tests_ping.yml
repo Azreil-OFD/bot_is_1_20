@@ -1,0 +1,20 @@
+name: Run Tests
+
+on: [push, pull_request]
+
+jobs:
+  test_get_pong:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install pytest
+      - name: Run test get_pong
+        run: |
+          pytest -k 'test_get_pong'
