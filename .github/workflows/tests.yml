@@ -5,18 +5,14 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - uses: actions/checkout@v2
-      
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.12'
+      - uses: actions/checkout@v2
 
-    - name: Install dependencies
-      run: pip install pytest
-
-    - name: Run tests
-      run: |
-        pytest
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.12"
+      - name: Run tests
+        run: |
+          python3 -m unittest
