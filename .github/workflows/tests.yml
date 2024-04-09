@@ -3,9 +3,8 @@ name: Run Tests
 on: [push, pull_request]
 
 jobs:
-  test:
+  test_calculate_expression:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
 
@@ -18,9 +17,30 @@ jobs:
       - name: Run test calculate_expression
         run: |
           pytest -k 'test_calculate_expression'
+
+  test_get_pong:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.12"
       - name: Run test get_pong
         run: |
           pytest -k 'test_get_pong'
+
+  test_get_random:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.12"
       - name: Run test get_random
         run: |
           pytest -k 'test_get_random'
