@@ -13,19 +13,14 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: "3.12"
-
-      - name: Run tests get random value
+      - name: Install dependencies
+        run: pip install pytest
+      - name: Run test calculate_expression
         run: |
-          python3 -m unittest test_get_random_within_range
-          python3 -m unittest test_get_random_default_range
-          python3 -m unittest test_get_random_custom_range
-          python3 -m unittest test_get_random_invalid_range
-
-      - name: Run test get pong
+          pytest test_calculate_expression.py
+      - name: Run test get_pong
         run: |
-          python3 -m unittest test_get_pong_output
-
-      - name: Run tests calculate expression
+          pytest test_get_pong.py
+      - name: Run test get_random
         run: |
-          python3 -m unittest test_calculate_expression
-          python3 -m unittest test_calculate_expression_error
+          pytest test_get_random.py
